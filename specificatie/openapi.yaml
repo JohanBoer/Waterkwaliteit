@@ -170,7 +170,7 @@ components:
             description: '<body><p>Gedrag- Dood, Levend Domeintabel: BiologischKenmerk,
               groep: Gedrag</p></body>'
         geometrieMonster:
-          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/Generieke-Datatypen-Gemeenten.yaml#/components/schemas/GeoJSONGeometrie'
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/schemas/GeoJSONGeometry'
         geslacht:
           allOf:
           - $ref: '#/components/schemas/BiologischKenmerk'

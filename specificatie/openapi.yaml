@@ -1,0 +1,561 @@
+openapi: 3.0.0
+servers:
+  - description: "SwaggerHub API Auto Mocking"
+    url: https://virtserver.swaggerhub.com/VNGRealisatie/api/waterkwaliteit_metingen/v0
+  - description: "Referentie-implementatie"
+    url: https://www.voorbeeldgemeente.nl/api/waterkwaliteit_metingen/v0
+info:
+  title: Waterkwaliteit metingen
+  description: ""
+  version: 1.0.0
+  x-imvertor-generator-version: "1.65.4"
+  x-yamlCompiler-stylesheets-version: "20211130"
+  contact:
+    url: www.tobedefined.nl
+  license:
+    name: European Union Public License, version 1.2 (EUPL-1.2)
+    url: https://eupl.eu/1.2/nl/
+paths:
+  /metingen:
+    get:
+      operationId: Getmetingen
+      description: ""
+      responses:
+        '200':
+          description: "Zoekactie geslaagd"
+          headers:
+            api-version:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/headers/api_version"
+            warning:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/headers/warning"
+            X-Rate-Limit-Limit:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/headers/X_Rate_Limit_Limit"
+            X-Rate-Limit-Remaining:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/headers/X_Rate_Limit_Remaining"
+            X-Rate-Limit-Reset:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/headers/X_Rate_Limit_Reset"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Meting'
+        '400':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/responses/400"
+        '401':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/responses/401"
+        '403':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/responses/403"
+        '409':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/responses/409"
+        '410':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/responses/410"
+        '415':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/responses/415"
+        '429':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/responses/429"
+        '500':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/responses/500"
+        '501':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/responses/501"
+        '503':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/responses/503"
+        'default':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/responses/default"
+      tags: 
+      - Metingen
+    post:
+      operationId: postmetingen
+      description: ""
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Meting'
+      responses:
+        '201':
+          description: "OK"
+          headers:
+            Location:
+              description: "URI van de nieuwe resource"
+              schema:
+                type: string
+                format: uri
+                example: '/metingen/'
+            api-version:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/headers/api_version"
+            warning:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/headers/warning"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Meting'
+        '400':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/responses/400"
+        '401':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/responses/401"
+        '403':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/responses/403"
+        '409':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/responses/409"
+        '410':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/responses/410"
+        '415':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/responses/415"
+        '429':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/responses/429"
+        '500':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/responses/500"
+        '501':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/responses/501"
+        '503':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/responses/503"
+        'default':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/responses/default"
+      tags: 
+      - Metingen
+components:
+  schemas:
+    Meting:
+      type: object
+      description: <body><p>Dit is een entiteittype dat is samengesteld om alle elementen
+        van de CSV in 1 resource te kunnen vatten.</p></body>
+      required:
+      - biota
+      - fysiekeEigenschap
+      - geometrieMonster
+      - identficatieWaarneming
+      - identificatieMeetobject
+      - identificatieMonster
+      - meetresultaat
+      - monsterCompartiment
+      - resultaatDatum
+      properties:
+        analyseCompartiment:
+          allOf:
+          - $ref: '#/components/schemas/Compartiment'
+          - title: AnalyseCompartiment
+            description: '<body><p>Compartiment - het compartiment waarin de analyse
+              is uitgevoerd of waarop de rechtstreekse waarneming betrekking heeft.
+              Het analysecompartiment kan afwijken van het monstercompartiment, als
+              het analysevoorschrift een bewerking op het monster voorschrijft of
+              als een waarneming plaatsvindt zonder fysiek monster. Over het algemeen
+              kan gesteld worden dat waarnemingen getoetst kunnen worden aan milieukwaliteitsnormen
+              die gelden voor het analysecompartiment. Domeintabel: Compartiment</p></body>'
+        begindatum:
+          type: string
+          title: phenomenontime
+          description: <body><p>Start- en eindtijd van een metingen reeks, indien
+            het om een reeks gaat en dus AnalysisRange gevuld is.</p></body>
+          format: date-time
+        bemonsteringsapparaat:
+          allOf:
+          - $ref: '#/components/schemas/Bemonsteringsapparaat'
+          - title: Bemonsteringsapparaat
+            description: '<body><p>Bemonsteringsapparaat. De beschrijving van het
+              soort apparaat waarmee de monstername in het veld is uitgevoerd. Domeintabel:
+              BemonsteringsApparaat</p></body>'
+        biota:
+          $ref: '#/components/schemas/Biota'
+        fysiekeEigenschap:
+          $ref: '#/components/schemas/FysiekeEigenschap'
+        gedrag:
+          allOf:
+          - $ref: '#/components/schemas/BiologischKenmerk'
+          - title: Gedrag
+            description: '<body><p>Gedrag- Dood, Levend Domeintabel: BiologischKenmerk,
+              groep: Gedrag</p></body>'
+        geometrieMonster:
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/Generieke-Datatypen-Gemeenten.yaml#/components/schemas/GeoJSONGeometrie'
+        geslacht:
+          allOf:
+          - $ref: '#/components/schemas/BiologischKenmerk'
+          - title: Geslacht
+            description: '<body><p>Geslacht - Man, Vrouw Domeintabel: BiologischKenmerk,
+              groep: Geslacht</p></body>'
+        identficatieWaarneming:
+          $ref: https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/Generieke-Datatypen-Gemeenten.yaml#/components/schemas/NEN3610ID
+        identificatieMeetobject:
+          $ref: https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/Generieke-Datatypen-Gemeenten.yaml#/components/schemas/NEN3610ID
+        identificatieMonster:
+          $ref: https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/Generieke-Datatypen-Gemeenten.yaml#/components/schemas/NEN3610ID
+        lengteklasse:
+          allOf:
+          - $ref: '#/components/schemas/BiologischKenmerk'
+          - title: Lengteklasse
+            description: '<body><p>Lengteklasse - Vislengteklasse-1 (ouder dan 0+
+              en met een lengte t/m 15 cm) Vislengte snoek klasse 4 (45 t/m 54 cm)
+              Domeintabel: BiologischKenmerk, groep: Lengteklasse</p></body>'
+        levensstadium:
+          allOf:
+          - $ref: '#/components/schemas/BiologischKenmerk'
+          - title: Levensstadium
+            description: '<body><p>Levensstadium - Adult, Larve, … Domeintabel:
+              BiologischKenmerk, groep: Levensstadium</p></body>'
+        levensvorm:
+          allOf:
+          - $ref: '#/components/schemas/BiologischKenmerk'
+          - title: Levensvorm
+            description: '<body><p>Levensvorm - Kolonie, Solitair of EnergieVorm zoals
+              Fototroof, Heterotroof Domeintabel: BiologischKenmerk, groep: Levensvorm</p></body>'
+        locatieTypeWaardeBepaling:
+          allOf:
+          - $ref: '#/components/schemas/LocatietypeWaardeBepaling'
+          - title: LocatieTypeWaardeBepaling
+            description: '<body><p>Aanduiding van de plaats waar het resultaat bepaald
+              is. Domeintabel: LocatieTypeWaardeBepaling De waarde in-situ is default.</p></body>'
+        meetresultaat:
+          $ref: '#/components/schemas/Meetresultaat'
+        monsterCompartiment:
+          allOf:
+          - $ref: '#/components/schemas/Compartiment'
+          - title: MonsterCompartiment
+            description: '<body><p>matrix / Soort compartiment waarin het monster
+              is genomen. Grond, Grondwater .e.d. Domeintabel: Compartiment</p></body>'
+        monsterOphaalDatumTijd:
+          type: string
+          title: starttime
+          description: <body><p>De begintijd van het object, dus wanneer deze is ontstaan
+            om een meting aan te gaan doen.</p></body>
+          format: date-time
+        resultaatDatum:
+          type: string
+          title: resulttime
+          description: <body><p>Resultaat Datum en tijd.</p></body>
+          format: date-time
+        verschijningsvorm:
+          allOf:
+          - $ref: '#/components/schemas/BiologischKenmerk'
+          - title: Verschijningsvorm
+            description: '<body><p>Verschijningsvorm - Behaard, Gepantserd, Naakt
+              Domeintabel: BiologischKenmerk, groep: Verschijningsvorm</p></body>'
+        waardebepalingsmethode:
+          allOf:
+          - $ref: '#/components/schemas/Waardebepalingsmethode'
+          - title: Waardebepalingsmethode
+            description: '<body><p>wijze waarop de meetwaarde bepaald is Domeintabel:
+              Waardebepalingsmethode</p></body>'
+    Bemonsteringsapparaat:
+      type: object
+      description: '<body><p>-</p></body><body><p>Geldig tot: 01-01-2100</p></body><body><p>https://www.aquo.nl/index.php/Imwa
+        <em>sim</em> 1.0/doc/codelijst/bemonsteringsapparaat</p></body>'
+      required:
+      - id
+      - omschrijving
+      properties:
+        id:
+          type: string
+          title: id
+          description: <body><p>Identificatie</p></body>
+          minLength: 1
+        omschrijving:
+          type: string
+          title: omschrijving
+          description: <body><p>Omschrijving</p></body>
+          minLength: 1
+    BiologischKenmerk:
+      type: object
+      description: '<body><p>-</p></body><body><p>Geldig tot: 01-01-2100</p></body><body><p>https://www.aquo.nl/index.php/Imwa
+        <em>sim</em> 1.0/doc/codelijst/biologischkenmerk</p></body>'
+      required:
+      - code
+      - omschrijving
+      properties:
+        code:
+          type: string
+          title: code
+          description: <body><p>Code</p></body>
+          minLength: 1
+        omschrijving:
+          type: string
+          title: omschrijving
+          description: <body><p>Omschrijving</p></body>
+          minLength: 1
+    Biota:
+      type: object
+      description: <body><p>Speciaal datatype voor uitbreidingen aan het monster voor
+        de biota kenmerken voor bio-monsters.</p></body>
+      properties:
+        orgaan:
+          allOf:
+          - $ref: '#/components/schemas/Orgaan'
+          - title: Orgaan
+            description: '<body><p>Soort orgaan. Domeintabel: Orgaan</p></body>'
+        organisme:
+          allOf:
+          - $ref: '#/components/schemas/Biotaxon'
+          - title: Organisme
+            description: '<body><p>organisme - Nadere aanduiding van het organisme
+              waarin het monster is genomen. Domeintabel: Biotaxon</p></body>'
+    Biotaxon:
+      type: object
+      description: '<body><p>-</p></body><body><p>Geldig tot: 01-01-2100</p></body><body><p>https://www.aquo.nl/index.php/Imwa
+        <em>sim</em> 1.0/doc/codelijst/biotaxon</p></body>'
+      required:
+      - id
+      - naam
+      properties:
+        id:
+          type: string
+          title: id
+          description: <body><p>Identificatie</p></body>
+          minLength: 1
+        naam:
+          type: string
+          title: naam
+          description: <body><p>Naam</p></body>
+          minLength: 1
+    Compartiment:
+      type: object
+      description: '<body><p>-</p></body><body><p>-</p></body><body><p>Geldig tot:
+        01-01-2100</p></body><body><p>Geldig tot: 01-01-2100</p></body>'
+      required:
+      - id
+      - omschrijving
+      properties:
+        id:
+          type: string
+          title: id
+          description: <body><p>Identificatie</p></body>
+          minLength: 1
+        omschrijving:
+          type: string
+          title: omschrijving
+          description: <body><p>Omschrijving</p></body>
+          minLength: 1
+    Eenheid:
+      type: object
+      description: '<body><p>-</p></body><body><p>-</p></body><body><p>Geldig tot:
+        01-01-2100</p></body><body><p>Geldig tot: 01-01-2100</p></body>'
+      required:
+      - id
+      - omschrijving
+      properties:
+        id:
+          type: string
+          title: id
+          description: <body><p>Identificatie</p></body>
+          minLength: 1
+        omschrijving:
+          type: string
+          title: omschrijving
+          description: <body><p>Omschrijving</p></body>
+          minLength: 1
+    FysiekeEigenschap:
+      type: object
+      description: '<body><p>PhysicalProperty - Is een (fysieke) eigenschap van een
+        object die kan worden gemeten of waargenomen.</p><p>Physical Property is een
+        samengesteld attribuut bestaand uit:<br/> • een grootheid (domeintabel Parameter,
+        groep Grootheid) plus evt. • een parameter (domeintabel Parameter, groep
+        ChemischeStof/groep Object) of domeintabel Biotaxon) en/of • één of meerdere
+        hoedanigheden (domeintabel Hoedanigheid).</p><p>Voorbeelden hiervan zijn:</p><p>Grootheid
+        (domeintabel Parameter, groep Grootheid): Aantal Parameter (domeintabel Parameter,
+        groep Object): Badgast</p><p>Grootheid (domeintabel Parameter, groep Grootheid):
+        Waterhoogte Hoedanigheid (domeintabel Hoedanigheid): t.o.v. NAP</p><p>Grootheid
+        (domeintabel Parameter, groep Grootheid): (massa)Concentratie Parameter (domeintabel
+        Parameter, groep ChemischeStof): lood Hoedanigheid (domeintabel Hoedanigheid):
+        t.o.v. drooggewicht</p></body>'
+      required:
+      - biotaxon
+      - quantity
+      properties:
+        biotaxon:
+          allOf:
+          - $ref: '#/components/schemas/Biotaxon'
+          - title: biotaxon
+            description: <body><p>Biotaxon</p></body>
+        hoedanigheid:
+          type: array
+          items:
+            $ref: '#/components/schemas/Hoedanigheid'
+        parameter:
+          allOf:
+          - $ref: '#/components/schemas/Parameter'
+          - title: parameter
+            description: '<body><p>Physical Property: Parameter ‘(ChemischeStof:
+              lood, Object: Badgast)’ Domeintabel: Parameter, biotaxon</p></body>'
+        quantity:
+          allOf:
+          - $ref: '#/components/schemas/Parameter'
+          - title: quantity
+            description: '<body><p>Grootheid (Aantal, Concentratie, Dikte, Temperatuur,
+              pH) Domeintabel: Parameter (in de groep: Grootheid)</p></body>'
+    Hoedanigheid:
+      type: object
+      description: '<body><p>-</p></body><body><p>-</p></body><body><p>Geldig tot:
+        01-01-2100</p></body><body><p>Geldig tot: 01-01-2100</p></body>'
+      required:
+      - id
+      - omschrijving
+      properties:
+        id:
+          type: string
+          title: id
+          description: <body><p>Identificatie</p></body>
+          minLength: 1
+        omschrijving:
+          type: string
+          title: omschrijving
+          description: <body><p>Omschrijving</p></body>
+          minLength: 1
+    Kwaliteitsoordeel:
+      type: object
+      description: '<body><p>-</p></body><body><p>-</p></body><body><p>Geldig tot:
+        01-01-2100</p></body><body><p>Geldig tot: 01-01-2100</p></body>'
+      required:
+      - id
+      - omschrijving
+      properties:
+        id:
+          type: string
+          title: id
+          description: <body><p>Identificatie</p></body>
+          minLength: 1
+        omschrijving:
+          type: string
+          title: omschrijving
+          description: <body><p>Omschrijving</p></body>
+          minLength: 1
+    LocatietypeWaardeBepaling:
+      type: object
+      description: '<body><p>-</p></body><body><p>-</p></body><body><p>Geldig tot:
+        01-01-2100</p></body><body><p>Geldig tot: 01-01-2100</p></body>'
+      required:
+      - id
+      - omschrijving
+      properties:
+        id:
+          type: string
+          title: id
+          description: <body><p>Identificatie</p></body>
+          minLength: 1
+        omschrijving:
+          type: string
+          title: omschrijving
+          description: <body><p>Omschrijving</p></body>
+          minLength: 1
+    Meetresultaat:
+      type: object
+      description: <body><p>Meetresultaat. De uitkomst van een meting in de vorm van
+        een numerieke waarde.</p></body>
+      required:
+      - eenheid
+      properties:
+        alphanumericvalue:
+          type: string
+          title: alphanumericvalue
+          description: <body><p>Textuele waarde bij een analyse resultaat</p></body>
+        eenheid:
+          allOf:
+          - $ref: '#/components/schemas/Eenheid'
+          - title: eenheid
+            description: <body><p>Eenheid</p></body>
+        limitsymbol:
+          type: string
+          title: limitsymbol
+          description: '<body><p>LimietSymbool, toegestane waardes: ''&lt;'' en ''&gt;''.
+            ''&lt;'' staat voor ''kleiner dan laagste grenswaarde'' ''&gt;'' staat
+            voor ''groter dan hoogste grenswaarde''</p><p>De gehanteerde grens voor
+            het limietsymbool kan worden opgegeven in de DeteminationLimits (LimitSymbolReferenceCode)
+            als referentie met de daadwerkelijke waarde van de grens. De waarde kan
+            op 2 mogelijkheden opgenomen worden in de uitwisseling:1) als CData blok:<br/>
+            <![CDATA[<]]> of <![CDATA[>]]> 2) als HTML code: ''&amp; lt;'' of ''&amp;
+            gt;''</p></body>'
+        numeriekeWaarde:
+          type: number
+          title: numericvalue
+          description: <body><p>Numeriekwaarde - de numerieke waarde van de waarneming.
+            Wanneer er geen eenheid bij de meting bekend is, moet de eenheid Dimensieloos
+            gebruikt worden.</p></body>
+        qualityindicatortype:
+          allOf:
+          - $ref: '#/components/schemas/Kwaliteitsoordeel'
+          - title: qualityindicatortype
+            description: '<body><p>KwaliteitsIndicator/Oordeel Detectiegrens e.d.
+              Domeintabel: Kwaliteitsoordeel</p></body>'
+        valueprocessingmethod:
+          allOf:
+          - $ref: '#/components/schemas/Waardebewerkingsmethode'
+          - title: valueprocessingmethod
+            description: '<body><p>waardebewerkingsMethode een wiskundige/statistische
+              bewerking die toegepast wordt waarbij de waardebepalingsmethode/analysenorm
+              ongewijzigd blijft.</p><p>De bewerking kan worden toegepast op een reeks
+              meetwaarden met gelijke parameter (grootheid/component of typering of
+              taxon of object) of op een reeks meetwaarden met gelijke analysemethode
+              die worden gesommeerd tot een somparameter. Domeintabel: WaardebewerkingsMethode</p></body>'
+    Orgaan:
+      type: object
+      description: '<body><p>-</p></body><body><p>-</p></body><body><p>Geldig tot:
+        01-01-2100</p></body><body><p>Geldig tot: 01-01-2100</p></body>'
+      required:
+      - id
+      - omschrijving
+      properties:
+        id:
+          type: string
+          title: id
+          description: <body><p>Identificatie</p></body>
+          minLength: 1
+        omschrijving:
+          type: string
+          title: omschrijving
+          description: <body><p>Omschrijving</p></body>
+          minLength: 1
+    Parameter:
+      type: object
+      description: '<body><p>-</p></body><body><p>-</p></body><body><p>Geldig tot:
+        01-01-2100</p></body><body><p>Geldig tot: 01-01-2100</p></body>'
+      required:
+      - id
+      - omschrijving
+      properties:
+        id:
+          type: string
+          title: id
+          description: <body><p>Identificatie</p></body>
+          minLength: 1
+        omschrijving:
+          type: string
+          title: omschrijving
+          description: <body><p>Omschrijving</p></body>
+          minLength: 1
+    Waardebepalingsmethode:
+      type: object
+      description: '<body><p>-</p></body><body><p>-</p></body><body><p>Geldig tot:
+        01-01-2100</p></body><body><p>Geldig tot: 01-01-2100</p></body>'
+      required:
+      - id
+      - omschrijving
+      properties:
+        id:
+          type: string
+          title: id
+          description: <body><p>Identificatie</p></body>
+          minLength: 1
+        omschrijving:
+          type: string
+          title: omschrijving
+          description: <body><p>Omschrijving</p></body>
+          minLength: 1
+    Waardebewerkingsmethode:
+      type: object
+      description: '<body><p>-</p></body><body><p>-</p></body><body><p>Geldig tot:
+        01-01-2100</p></body><body><p>Geldig tot: 01-01-2100</p></body>'
+      required:
+      - id
+      - omschrijving
+      properties:
+        id:
+          type: string
+          title: id
+          description: <body><p>Identificatie</p></body>
+          minLength: 1
+        omschrijving:
+          type: string
+          title: omschrijving
+          description: <body><p>Omschrijving</p></body>
+          minLength: 1

@@ -22,7 +22,7 @@ nav:
 #        url: https://vng-realisatie.github.io/IMWOZ-bevragingen/user-stories-prod
 #        https://github.com/VNG-Realisatie/IMWOZ-bevragingen/issues?q=is%3Aissue+label%3A%22user+story%22
 #        path: /user-stories
-      - title: Wtaerkwaliteit-metingen (swagger-ui)
+      - title: Waterkwaliteit-metingen (swagger-ui)
         path: /WK-swagger-ui
       - title: Waterkwaliteit-metingen (redoc)
         path: /WK-redoc

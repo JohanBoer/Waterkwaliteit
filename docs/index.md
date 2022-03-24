@@ -19,7 +19,7 @@ De Specificatie van de betreffende API's is te bekijken in [Swagger-UI](./WK-swa
 ## Bronnen
 
 * [Informatiemodel IMWA](https://rkathman.home.xs4all.nl/IMWOZ/IMWOZ.html)
-* [REST API Design Rules](https://docs.geostandaarden.nl/api/API-Designrules/)
+* [REST API Design Rules](https://docs.geostandaarden.nl/api/API-Designrules/) 
 * [Landelijke API strategie voor de overheid](https://geonovum.github.io/KP-APIs/
 
 

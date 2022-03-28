@@ -1,24 +1,24 @@
 openapi: 3.0.0
 servers:
   - description: "SwaggerHub API Auto Mocking"
-    url: https://virtserver.swaggerhub.com/VNGRealisatie/api//v1
+    url: https://virtserver.swaggerhub.com/VNGRealisatie/api/bemonstering/v1
   - description: "Referentie-implementatie"
-    url: https://www.voorbeeldgemeente.nl/api//v1
+    url: https://www.voorbeeldgemeente.nl/api/bemonstering/v1
 info:
-  title: Titel
+  title: Bemonstering
   description: ""
   version: "1.0"
   x-imvertor-generator-version: "1.65.4"
   x-yamlCompiler-stylesheets-version: "20211130"
   contact:
-    url: website
+    url: www.waterkwaliteit.nl
   license:
     name: European Union Public License, version 1.2 (EUPL-1.2)
     url: https://eupl.eu/1.2/nl/
 paths:
-  /metingen:
+  /bemonstering:
     get:
-      operationId: Getmetingen
+      operationId: Getbemonstering
       description: ""
       responses:
         '200':
@@ -63,9 +63,9 @@ paths:
         'default':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/responses/default"
       tags: 
-      - Metingen
+      - Bemonstering
     post:
-      operationId: postmetingen
+      operationId: postbemonstering
       description: ""
       requestBody:
         content:
@@ -81,7 +81,7 @@ paths:
               schema:
                 type: string
                 format: uri
-                example: '/metingen/'
+                example: '/bemonstering/'
             api-version:
               $ref: "https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/headers/api_version"
             warning:
@@ -113,7 +113,7 @@ paths:
         'default':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/responses/default"
       tags: 
-      - Metingen
+      - Bemonstering
 components:
   schemas:
     Bemonstering:
@@ -128,26 +128,30 @@ components:
       - identificatie
       - monsterCompartiment
       properties:
-        identificatie:
-          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/Generieke-Datatypen-Gemeenten.yaml#/components/schemas/NEN3610ID'
+        analyses:
+          $ref: '#/components/schemas/AnalyseProces'
         bemonsteringsapparaat:
           type: string
           title: id
-          description: ""
+          description: '<body><p>Bemonsteringsapparaat. De beschrijving van het soort
+            apparaat waarmee de monstername in het veld is uitgevoerd. Domeintabel:
+            BemonsteringsApparaat</p></body>'
         biota:
           $ref: '#/components/schemas/Biota'
         geometrie:
           $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/schemas/GeoJSONGeometry'
+        identificatie:
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/Generieke-Datatypen-Gemeenten.yaml#/components/schemas/NEN3610ID'
         monsterCompartiment:
           type: string
           title: id
-          description: ""
+          description: '<body><p>matrix / Soort compartiment waarin het monster is
+            genomen. Grond, Grondwater .e.d. Domeintabel: Compartiment</p></body>'
           minLength: 1
-        analyses:
-          $ref: '#/components/schemas/AnalyseProces'
     Analyse:
       type: object
-      description: ""
+      description: <body><p>Analyse Een analyse waarneming, gemeten en bepaald op
+        een speciale manier.</p></body>
       required:
       - fysiekeEigenschap
       - identificatie
@@ -157,7 +161,8 @@ components:
         begindatum:
           type: string
           title: phenomenontime
-          description: ""
+          description: <body><p>Start- en eindtijd van een metingen reeks, indien
+            het om een reeks gaat en dus AnalysisRange gevuld is.</p></body>
           format: date-time
         fysiekeEigenschap:
           $ref: '#/components/schemas/FysiekeEigenschap'
@@ -168,11 +173,13 @@ components:
         resultaatDatum:
           type: string
           title: resulttime
-          description: ""
+          description: <body><p>Resultaat Datum en tijd.</p><p><gml:TimeInstant><br/>
+            <gml:timePosition>2003-02-13T12:28-08:00</gml:timePosition><br/> </gml:TimeInstant></p></body>
           format: date-time
     AnalyseProces:
       type: object
-      description: ""
+      description: <body><p>Analyse proces Het proces dat uitgevoerd is om tot een
+        analyse te komen.</p></body>
       required:
       - identificatie
       - metingen
@@ -180,34 +187,55 @@ components:
         analyseCompartiment:
           type: string
           title: id
-          description: ""
+          description: '<body><p>Compartiment - het compartiment waarin de analyse
+            is uitgevoerd of waarop de rechtstreekse waarneming betrekking heeft.
+            Het analysecompartiment kan afwijken van het monstercompartiment, als
+            het analysevoorschrift een bewerking op het monster voorschrijft of als
+            een waarneming plaatsvindt zonder fysiek monster. Over het algemeen kan
+            gesteld worden dat waarnemingen getoetst kunnen worden aan milieukwaliteitsnormen
+            die gelden voor het analysecompartiment. Domeintabel: Compartiment</p></body>'
         identificatie:
           $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/Generieke-Datatypen-Gemeenten.yaml#/components/schemas/NEN3610ID'
         locatieTypeWaardeBepaling:
           type: string
           title: id
-          description: ""
+          description: '<body><p>Aanduiding van de plaats waar het resultaat bepaald
+            is. Domeintabel: LocatieTypeWaardeBepaling De waarde in-situ is default.</p></body>'
+        metingen:
+          $ref: '#/components/schemas/Analyse'
         waardebepalingsmethode:
           type: string
           title: id
-          description: ""
-        metingen:
-          $ref: '#/components/schemas/Analyse'
+          description: '<body><p>wijze waarop de meetwaarde bepaald is Domeintabel:
+            Waardebepalingsmethode</p></body>'
     Biota:
       type: object
-      description: ""
+      description: <body><p>Speciaal datatype voor uitbreidingen aan het monster voor
+        de biota kenmerken voor bio-monsters.</p></body>
       properties:
         orgaan:
           type: string
           title: id
-          description: ""
+          description: '<body><p>Soort orgaan. Domeintabel: Orgaan</p></body>'
         organisme:
           type: string
           title: id
-          description: ""
+          description: '<body><p>organisme - Nadere aanduiding van het organisme waarin
+            het monster is genomen. Domeintabel: Biotaxon</p></body>'
     FysiekeEigenschap:
       type: object
-      description: ""
+      description: '<body><p>PhysicalProperty - Is een (fysieke) eigenschap van een
+        object die kan worden gemeten of waargenomen.</p><p>Physical Property is een
+        samengesteld attribuut bestaand uit:<br/> • een grootheid (domeintabel Parameter,
+        groep Grootheid) plus evt. • een parameter (domeintabel Parameter, groep
+        ChemischeStof/groep Object) of domeintabel Biotaxon) en/of • één of meerdere
+        hoedanigheden (domeintabel Hoedanigheid).</p><p>Voorbeelden hiervan zijn:</p><p>Grootheid
+        (domeintabel Parameter, groep Grootheid): Aantal Parameter (domeintabel Parameter,
+        groep Object): Badgast</p><p>Grootheid (domeintabel Parameter, groep Grootheid):
+        Waterhoogte Hoedanigheid (domeintabel Hoedanigheid): t.o.v. NAP</p><p>Grootheid
+        (domeintabel Parameter, groep Grootheid): (massa)Concentratie Parameter (domeintabel
+        Parameter, groep ChemischeStof): lood Hoedanigheid (domeintabel Hoedanigheid):
+        t.o.v. drooggewicht</p></body>'
       required:
       - biotaxon
       - quantity
@@ -220,47 +248,66 @@ components:
         hoedanigheid:
           type: array
           title: id
-          description: ""
+          description: '<body><p>Hoedanigheid (Filtratie, Drooggewicht, Korrelfractiegroottes)
+            Domeintabel: Hoedanigheid</p></body>'
           minItems: 0
           items:
             type: string
         parameter:
           type: string
           title: id
-          description: ""
+          description: '<body><p>Physical Property: Parameter (ChemischeStof: lood
+            Object: Badgast) Domeintabel: Parameter biotaxon</p></body>'
         quantity:
           type: string
           title: id
-          description: ""
+          description: '<body><p>Grootheid (Aantal, Concentratie, Dikte, Temperatuur,
+            pH) Domeintabel: Parameter (in de groep: Grootheid)</p></body>'
           minLength: 1
     Meetresultaat:
       type: object
-      description: ""
+      description: <body><p>Meetresultaat. De uitkomst van een meting in de vorm van
+        een numerieke waarde.</p></body>
       required:
       - eenheid
       properties:
         alphanumericvalue:
           type: string
           title: alphanumericvalue
-          description: ""
+          description: <body><p>Textuele waarde bij een analyse resultaat</p></body>
         eenheid:
           type: string
           title: id
-          description: ""
+          description: <body><p>Eenheid</p></body>
           minLength: 1
         limitsymbol:
           type: string
           title: limitsymbol
-          description: ""
+          description: '<body><p>LimietSymbool, toegestane waardes: ''&lt;'' en ''&gt;''.
+            ''&lt;'' staat voor ''kleiner dan laagste grenswaarde'' ''&gt;'' staat
+            voor ''groter dan hoogste grenswaarde''</p><p>De gehanteerde grens voor
+            het limietsymbool kan worden opgegeven in de DeteminationLimits (LimitSymbolReferenceCode)
+            als referentie met de daadwerkelijke waarde van de grens. De waarde kan
+            op 2 mogelijkheden opgenomen worden in de uitwisseling:1) als CData blok:<br/>
+            <![CDATA[<]]> of <![CDATA[>]]> 2) als HTML code: ''&amp; lt;'' of ''&amp;
+            gt;''</p></body>'
         numeriekeWaarde:
           type: number
           title: numericvalue
-          description: ""
+          description: <body><p>Numeriekwaarde - de numerieke waarde van de waarneming.
+            Wanneer er geen eenheid bij de meting bekend is, moet de eenheid 'Dimensieloos'
+            gebruikt worden.</p></body>
         qualityindicatortype:
           type: string
           title: id
-          description: ""
+          description: '<body><p>KwaliteitsIndicator/Oordeel -> Detectiegrens e.d.
+            Domeintabel: Kwaliteitsoordeel</p></body>'
         valueprocessingmethod:
           type: string
           title: id
-          description: ""
+          description: '<body><p>waardebewerkingsMethode een wiskundige/statistische
+            bewerking die toegepast wordt waarbij de waardebepalingsmethode/analysenorm
+            ongewijzigd blijft.</p><p>De bewerking kan worden toegepast op een reeks
+            meetwaarden met gelijke parameter (grootheid/component of typering of
+            taxon of object) of op een reeks meetwaarden met gelijke analysemethode
+            die worden gesommeerd tot een somparameter. Domeintabel: WaardebewerkingsMethode</p></body>'

@@ -14,8 +14,6 @@ Deze API is een alternatief voor de CSV-uitwisseling die nu wordt gebruikt en is
 
 De Specificatie van de betreffende API's is te bekijken in [Swagger-UI](./WK-swagger-ui) of [Redoc](./WK-redoc) --- [technische specificaties](https://github.com/JohanBoer/Waterkwaliteit/tree/main/specificatie/specificatie/openapi.yaml)
 
-## Documentatie
-
 ## Bronnen
 
 * [Gebaseerd op Informatiemodel IMmetinegn](https://www.sikb.nl/doc/BRL0100/Uitwisselmodel%20IM%20Metingen%20v14.6.0.pdf)

@@ -1,1 +1,266 @@
-
+openapi: 3.0.0
+servers:
+  - description: "SwaggerHub API Auto Mocking"
+    url: https://virtserver.swaggerhub.com/VNGRealisatie/api//v1
+  - description: "Referentie-implementatie"
+    url: https://www.voorbeeldgemeente.nl/api//v1
+info:
+  title: Titel
+  description: ""
+  version: "1.0"
+  x-imvertor-generator-version: "1.65.4"
+  x-yamlCompiler-stylesheets-version: "20211130"
+  contact:
+    url: website
+  license:
+    name: European Union Public License, version 1.2 (EUPL-1.2)
+    url: https://eupl.eu/1.2/nl/
+paths:
+  /metingen:
+    get:
+      operationId: Getmetingen
+      description: ""
+      responses:
+        '200':
+          description: "Zoekactie geslaagd"
+          headers:
+            api-version:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/headers/api_version"
+            warning:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/headers/warning"
+            X-Rate-Limit-Limit:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/headers/X_Rate_Limit_Limit"
+            X-Rate-Limit-Remaining:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/headers/X_Rate_Limit_Remaining"
+            X-Rate-Limit-Reset:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/headers/X_Rate_Limit_Reset"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Bemonstering'
+        '400':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/responses/400"
+        '401':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/responses/401"
+        '403':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/responses/403"
+        '409':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/responses/409"
+        '410':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/responses/410"
+        '415':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/responses/415"
+        '429':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/responses/429"
+        '500':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/responses/500"
+        '501':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/responses/501"
+        '503':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/responses/503"
+        'default':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/responses/default"
+      tags: 
+      - Metingen
+    post:
+      operationId: postmetingen
+      description: ""
+      requestBody:
+        content:
+          application/json:
+            schema:
+                $ref: '#/components/schemas/Bemonstering'
+      responses:
+        '201':
+          description: "OK"
+          headers:
+            Location:
+              description: "URI van de nieuwe resource"
+              schema:
+                type: string
+                format: uri
+                example: '/metingen/'
+            api-version:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/headers/api_version"
+            warning:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/headers/warning"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bemonstering'
+        '400':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/responses/400"
+        '401':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/responses/401"
+        '403':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/responses/403"
+        '409':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/responses/409"
+        '410':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/responses/410"
+        '415':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/responses/415"
+        '429':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/responses/429"
+        '500':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/responses/500"
+        '501':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/responses/501"
+        '503':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/responses/503"
+        'default':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/responses/default"
+      tags: 
+      - Metingen
+components:
+  schemas:
+    Bemonstering:
+      type: object
+      description: <body><p>Dat deel van de fysieke werkelijkheid dat wordt beschouwd
+        of geanalyseerd.</p><p>Monster meetobject en waarneminsproces zijn hierin
+        samengevoegd</p></body>
+      required:
+      - analyses
+      - biota
+      - geometrie
+      - identificatie
+      - monsterCompartiment
+      properties:
+        identificatie:
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/Generieke-Datatypen-Gemeenten.yaml#/components/schemas/NEN3610ID'
+        bemonsteringsapparaat:
+          type: string
+          title: id
+          description: ""
+        biota:
+          $ref: '#/components/schemas/Biota'
+        geometrie:
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/schemas/GeoJSONGeometry'
+        monsterCompartiment:
+          type: string
+          title: id
+          description: ""
+          minLength: 1
+        analyses:
+          $ref: '#/components/schemas/AnalyseProces'
+    Analyse:
+      type: object
+      description: ""
+      required:
+      - fysiekeEigenschap
+      - identificatie
+      - meetresultaat
+      - resultaatDatum
+      properties:
+        begindatum:
+          type: string
+          title: phenomenontime
+          description: ""
+          format: date-time
+        fysiekeEigenschap:
+          $ref: '#/components/schemas/FysiekeEigenschap'
+        identificatie:
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/Generieke-Datatypen-Gemeenten.yaml#/components/schemas/NEN3610ID'
+        meetresultaat:
+          $ref: '#/components/schemas/Meetresultaat'
+        resultaatDatum:
+          type: string
+          title: resulttime
+          description: ""
+          format: date-time
+    AnalyseProces:
+      type: object
+      description: ""
+      required:
+      - identificatie
+      - metingen
+      properties:
+        analyseCompartiment:
+          type: string
+          title: id
+          description: ""
+        identificatie:
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/Generieke-Datatypen-Gemeenten.yaml#/components/schemas/NEN3610ID'
+        locatieTypeWaardeBepaling:
+          type: string
+          title: id
+          description: ""
+        waardebepalingsmethode:
+          type: string
+          title: id
+          description: ""
+        metingen:
+          $ref: '#/components/schemas/Analyse'
+    Biota:
+      type: object
+      description: ""
+      properties:
+        orgaan:
+          type: string
+          title: id
+          description: ""
+        organisme:
+          type: string
+          title: id
+          description: ""
+    FysiekeEigenschap:
+      type: object
+      description: ""
+      required:
+      - biotaxon
+      - quantity
+      properties:
+        biotaxon:
+          type: string
+          title: id
+          description: ""
+          minLength: 1
+        hoedanigheid:
+          type: array
+          title: id
+          description: ""
+          minItems: 0
+          items:
+            type: string
+        parameter:
+          type: string
+          title: id
+          description: ""
+        quantity:
+          type: string
+          title: id
+          description: ""
+          minLength: 1
+    Meetresultaat:
+      type: object
+      description: ""
+      required:
+      - eenheid
+      properties:
+        alphanumericvalue:
+          type: string
+          title: alphanumericvalue
+          description: ""
+        eenheid:
+          type: string
+          title: id
+          description: ""
+          minLength: 1
+        limitsymbol:
+          type: string
+          title: limitsymbol
+          description: ""
+        numeriekeWaarde:
+          type: number
+          title: numericvalue
+          description: ""
+        qualityindicatortype:
+          type: string
+          title: id
+          description: ""
+        valueprocessingmethod:
+          type: string
+          title: id
+          description: ""

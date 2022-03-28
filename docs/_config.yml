@@ -26,9 +26,9 @@ nav:
         path: /WK-swagger-ui
       - title: Waterkwaliteit-metingen (redoc)
         path: /WK-redoc
-      - title: Waterkwaliteit-metingen (swagger-ui)
+      - title: Waterkwaliteit-bemonstering A (swagger-ui)
         path: /WKA-swagger-ui
-      - title: Waterkwaliteit-metingen (redoc)
+      - title: Waterkwaliteit-metingen A (redoc)
         path: /WKA-redoc
 plugins:
   - jekyll-redirect-from

@@ -12,7 +12,7 @@ Deze API is een alternatief voor de CSV-uitwisseling die nu wordt gebruikt en is
 **Proef-implementaties (en terugkoppeling van de bevindingen daaruit) zijn uiteraard wel mogelijk, maar de specificatie kan op dag-basis wijzigen.**
 **Als er een eerste stabiele versie is wordt daar een release van aangemaakt en wordt dit op deze plek (en via andere communicatie-lijnen) gedeeld.**
 
-De Specificatie van de betreffende API's is te bekijken in [Swagger-UI](./WK-swagger-ui) of [Redoc](./WK-redoc) --- [technische specificaties](https://github.com/JohanBoer/Waterkwaliteit/tree/main/specificatie/specificatie/openapi.yaml)
+De Specificatie van de betreffende API's is te bekijken in [Swagger-UI](./WK-swagger-ui) of [Redoc](./WK-redoc) --- [technische specificaties](https://github.com/JohanBoer/Waterkwaliteit/tree/main/specificatie/openapi.yaml)
 
 ## Bronnen
 

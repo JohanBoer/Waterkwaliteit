@@ -26,7 +26,6 @@ nav:
         path: /WK-swagger-ui
       - title: Waterkwaliteit-metingen (redoc)
         path: /WK-redoc
-      - title: Op basis van alternatief voorstel
       - title: Waterkwaliteit-metingen (swagger-ui)
         path: /WKA-swagger-ui
       - title: Waterkwaliteit-metingen (redoc)
